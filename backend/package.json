@@ -10,7 +10,11 @@
     "fs": "^0.0.1-security"
   },
   "scripts": {
-    "start": "npx ts-node src/server.ts"
+    "start": "npx ts-node src/server.ts",
+    "start-production": "node build/index.js",
+    "build": "rm -rf ./build && tsc",
+    "deploy": "export NODE_ENV=production && yarn run build && gcloud config set project silly-side-projects && gcloud builds submit --tag gcr.io/silly-side-projects/temps-backend && gcloud run deploy temps-backend --image gcr.io/silly-side-projects/temps-backend --platform managed --region us-east1"
+    
   },
   "devDependencies": {
     "@types/cors": "^2.8.15",

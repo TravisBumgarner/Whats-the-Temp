@@ -5,5 +5,6 @@
   "scripts": {
     "start": "concurrently -n frontend,backend -c \"bgBlue.bold,bgMagenta.bold,bgGreen.bold\" \"cd frontend && yarn start\" \"cd backend && yarn start\"",
     "deploy": "cd backend && yarn deploy && cd ../frontend && yarn deploy"
-  }
-} 
+  },
+  "devDependencies": {}
+}
