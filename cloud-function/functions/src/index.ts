@@ -14,10 +14,10 @@ export const writeTempToFirestore = functions.https.onRequest(async (req, res): 
       res.status(400).send('Request body is missing.')
     }
 
-    const requestData = req.body
+    const { data, published_at } = req.body
 
     const docRef = db.collection('temps').doc()
-    await docRef.set(requestData)
+    await docRef.set({ temp: parseFloat(data), timestamp: new Date(published_at).getTime() })
 
     res.status(200).send('Data written to Firestore successfully')
   } catch (error) {

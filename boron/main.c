@@ -10,5 +10,5 @@ void setup() {
 void loop() {
   double tempF = thermistor->readTempF();
   Particle.publish(String("tempF"), String(tempF));
-  delay(5000);
-}
+  delay(30000);
+}cd 
