@@ -3,11 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import LineChart from './LineChart';
 
-type Data = {
-  "data": string
-  "published_at": string
-}
-
 export type Temps = {
   temp: number,
   date: Date
