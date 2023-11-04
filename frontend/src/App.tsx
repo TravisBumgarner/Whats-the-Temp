@@ -24,40 +24,10 @@ function formatDate(date: any) {
 
 
 function DataViewer() {
-  const [data, setData] = useState<Temps[]>([]);
-
-  const fetchData = () => {
-    axios.get('http://localhost:5005/temps').then((response) => {
-      const data = response.data
-        .split('\n')
-        .filter((a: any) => a)
-        .map((i: any) => {
-          const parsed = JSON.parse(i)
-          console.log(JSON.parse(i))
-          return { temp: parseFloat(parsed.data), date: formatDate(new Date(parsed.published_at)) }
-        })
-      console.log('data')
-      setData(data as unknown as Temps[]);
-    })
-  }
-
-  // Initial data fetch on component mount
-  useEffect(() => {
-    fetchData();
-
-    // Set up an interval to fetch data every minute (60,000 milliseconds)
-    const intervalId = setInterval(fetchData, 1_000);
-
-    // Clean up the interval on component unmount
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-
   return (
     <div>
       <h2>Data Viewer</h2>
-      <LineChart data={data} />
+      <LineChart />
     </div>
   );
 }
