@@ -1,4 +1,4 @@
-# Setup
+## Intro
 
 Make temp readings from a Particle Boron available to a React frontend via an Express backend.
 
