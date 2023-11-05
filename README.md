@@ -41,6 +41,21 @@ firebase deploy
 
 When setting up a Database, and firebase in general on a new account, would need to update credentials in firebase.ts.
 
+Database read/write, Cloud function has admin access to datastore.
+```
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read access to all documents
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
+```
+
 ## Debug Notes
 
 npm install -g particle-cli
