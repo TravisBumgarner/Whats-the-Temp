@@ -71,6 +71,7 @@ const Wrapper = styled.div`
   width: 90vw;
   aspect-ratio: 3/1;
   height: auto;
+  min-height: 300px;
 
   canvas {
     height: 100%;

@@ -9,7 +9,7 @@ function DataViewer() {
       <Wrapper>
         <Header>What's the temp in my van?</Header>
         <LineChart />
-        <Text>Measure temperature in real time from a Boron LTE microcontroller. Transmit it, via LTE, to Firestore via a cloud function webhook. Visualize it using React.</Text>
+        <Text>Measure realtime temperature with Boron LTE microcontroller. Post data to Firebase cloud function webhook for storage in Firestore. Visualize with React. Written with TypeScript.</Text>
       </Wrapper>
       <MoreFromCreator />
     </>
@@ -22,6 +22,10 @@ const Header = styled.h1`
   margin-bottom: 2rem;
   text-align: center;
   color: #4b80c0;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `
 
 const Text = styled.p`
@@ -31,6 +35,10 @@ const Text = styled.p`
   text-align: center;
   max-width: 1050px;
   color: #4b80c0;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `
 
 const Wrapper = styled.div`

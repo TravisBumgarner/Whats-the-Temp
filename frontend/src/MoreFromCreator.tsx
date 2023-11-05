@@ -40,6 +40,10 @@ const Button = styled.button`
   border-radius: 0.5rem;
   cursor: pointer;
 
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+  }
+
   &: hover {
     background-color: #4b80c0;
     color: white;

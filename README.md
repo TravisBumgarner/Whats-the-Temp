@@ -26,8 +26,7 @@ Make temp readings from a Particle Boron available to a React frontend via an Ex
 
 ## Cloud Function
 
-1. Edit env variable `API_KEY` to be exact same as password in `Generate API Key`
-2. You can delete the .env file to reprompt when deploying.
+1. When running yarn deploy, you'll be prompted for the API Key. This is the password generated in the step `Generate API Key`
 
 ## Firebase notes
 
@@ -39,6 +38,8 @@ When you're ready, deploy your web app
 Put your static files (e.g., HTML, CSS, JS) in your app's deploy directory (the default is "public"). Then, run this command from your app's root directory:
 
 firebase deploy
+
+When setting up a Database, and firebase in general on a new account, would need to update credentials in firebase.ts.
 
 ## Debug Notes
 
