@@ -1,3 +1,6 @@
+import "@fontsource/comfortaa"
+import "./index.css"
+
 // Import the functions you need from the SDKs you need
 
 

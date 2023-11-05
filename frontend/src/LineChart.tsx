@@ -4,6 +4,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 import 'chart.js/auto';
 import { database } from './firebase'
+import styled from 'styled-components';
 
 type Measurement = {
   timestamp: number,
@@ -39,16 +40,31 @@ export const LineChart = (): JSX.Element => {
         label: 'Temp (F)',
         data: points.map(({ temp }) => temp),
         fill: true,
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        borderColor: 'rgba(75,192,192,1)',
+        backgroundColor: 'rgba(255, 151, 47, 0.789)',
+        borderColor: '#4b80c0',
       },
     ],
   };
 
-  const options = { scales: { x: { ticks: { maxTicksLimit: 10 } } } }
+  const options = {
+    maintainAspectRatio: false,
+    scales: { x: { ticks: { maxTicksLimit: 10 } } }
+  }
 
-
-  return <Line options={options} ref={ref} data={plot} />
+  return <Wrapper>
+    <Line options={options} ref={ref} data={plot} />
+  </Wrapper>
 };
+
+
+const Wrapper = styled.div`
+  width: 90vw;
+  aspect-ratio: 3/1;
+  height: auto;
+
+  canvas {
+    height: 100%;
+  }
+`
 
 export default LineChart

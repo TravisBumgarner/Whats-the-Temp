@@ -8,7 +8,6 @@ const firebaseConfig = {
   storageBucket: "temps-efb42.appspot.com",
   messagingSenderId: "562853587591",
   appId: "1:562853587591:web:adb30842694592c2f9e622",
-  measurementId: "G-ZK9LWHXBLT",
   databaseURL: "temps-efb42.nam5.firebasedatabase.app"
 };
 
