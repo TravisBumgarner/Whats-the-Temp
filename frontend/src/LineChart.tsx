@@ -47,8 +47,17 @@ export const LineChart = (): JSX.Element => {
   };
 
   const options = {
+    bezierCurve: true,
     maintainAspectRatio: false,
-    scales: { x: { ticks: { maxTicksLimit: 10 } } }
+    scales: {
+      x: { ticks: { maxTicksLimit: 10 } }
+    },
+    tension: 0.2,
+    elements: {
+      point: {
+        radius: 0
+      }
+    }
   }
 
   return <Wrapper>
