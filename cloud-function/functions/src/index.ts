@@ -18,7 +18,6 @@ export const writeTempToFirestore = functions.https.onRequest(async (req, res): 
     // Could improve in the future. Good enough for now.
     if (api_key !== API_KEY.value()) {
       res.status(403).send('Invalid API key.')
-
     }
 
     if (!req.body) {
@@ -27,10 +26,16 @@ export const writeTempToFirestore = functions.https.onRequest(async (req, res): 
 
     const { data, published_at } = req.body
 
-    const docRef = db.collection('temps').doc()
-    await docRef.set({ temp: parseFloat(data), timestamp: new Date(published_at).getTime() })
+    const temp = parseFloat(data)
+    const timestamp = new Date(published_at).getTime()
 
-    res.status(200).send('Data written to Firestore successfully')
+    if (!isNaN(temp) && !isNaN(timestamp) && temp > -100 && timestamp > 0) {
+      const docRef = db.collection('temps').doc()
+      await docRef.set({ temp, timestamp })
+      res.status(200).send('Data written to Firestore successfully')
+    } else {
+      throw new Error("Validation failure")
+    }
   } catch (error) {
     res.status(500).send('Error writing data to Firestore: ' + error)
   }
