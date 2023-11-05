@@ -2,11 +2,10 @@
 
 Make temp readings from a Particle Boron available to a React frontend via an Express backend.
 
-## Backend
+## Generate API Key
 
-1. `yarn` install dependencies
-2. `yarn start`
-3. Select `PORTS` tab in Visual Studio Code Terminal and port forward to `5005` Make sure port is set to PUBLIC. (Probs a security issue, don't leave open forever lol.)
+1. Visit password generator to get an API Key
+
 
 ## Boron
 
@@ -16,6 +15,7 @@ Make temp readings from a Particle Boron available to a React frontend via an Ex
  - Enter in URL from step 3 of Backend setup, append `/data`
  - Request type is POST
  - Request format is JSON
+ - Set header `x-api-key` with password in `Generate API Key`
  - Select Device (Read elsewhere to setup device)
 3. Copy code from `boron/main.c` into text editor and upload to device at https://build.particle.io/
 
@@ -24,8 +24,11 @@ Make temp readings from a Particle Boron available to a React frontend via an Ex
 1. `yarn` install dependencies
 2. `yarn start`
 
+## Cloud Function
 
-# Firebase notes
+1. Edit env variable `API_KEY` to be exact same as password in `Generate API Key`
+
+## Firebase notes
 
 firebase login
 

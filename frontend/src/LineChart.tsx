@@ -50,7 +50,8 @@ export const LineChart = (): JSX.Element => {
     bezierCurve: true,
     maintainAspectRatio: false,
     scales: {
-      x: { ticks: { maxTicksLimit: 10 } }
+      x: { ticks: { maxTicksLimit: 10 } },
+      y: { min: 0, max: 120 }
     },
     tension: 0.2,
     elements: {

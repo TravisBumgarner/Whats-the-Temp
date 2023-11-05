@@ -1,13 +1,24 @@
 import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
+import { defineString } from 'firebase-functions/params'
 admin.initializeApp()
 
 const db = admin.firestore()
+const API_KEY = defineString('API_KEY')
 
 export const writeTempToFirestore = functions.https.onRequest(async (req, res): Promise<void> => {
   try {
     if (req.method !== 'POST') {
       res.status(400).send('Invalid request method. Use POST.')
+    }
+
+    const api_key = req.headers['x-api-key']
+
+
+    // Could improve in the future. Good enough for now.
+    if (api_key !== API_KEY.value()) {
+      res.status(403).send('Invalid API key.')
+
     }
 
     if (!req.body) {
